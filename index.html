@@ -1,4 +1,4 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sorting Algorithms · Java Trace</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"></head><body style="background:#ffffff;padding:35px 16px;margin:0"><div style="max-width:860px;margin:0 auto;color:#26323e;font:14px/1.6 'Space Grotesk Variable','Space Grotesk',Arial,Helvetica,sans-serif;">
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sorting Algorithms · Java Trace</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"></head><body style="background:#ffffff;padding:35px 16px;margin:0"><div style="max-width:1000px;margin:0 auto;color:#26323e;font:14px/1.6 'Space Grotesk Variable','Space Grotesk',Arial,Helvetica,sans-serif;">
 <div style="margin:0 0 42px;">
 <h2 style="font-family:'Space Grotesk Variable','Space Grotesk',Arial,Helvetica,sans-serif;font-size:24px;letter-spacing:-.3px;line-height:1.35;font-weight:700;margin:0 0 6px;">1. Merge Sort</h2>
 <p style="margin:0 0 7px;color:#798598;font:11.5px/1.5 'Space Grotesk Variable','Space Grotesk',Arial,Helvetica,sans-serif;">Java · <a href="https://www.programiz.com/dsa/merge-sort" style="color:#697b91;text-decoration:underline;">Programiz</a></p>
@@ -28,7 +28,7 @@
     j <span style="color:#506175">=</span> <span style="color:#b35329">0</span>;
     k <span style="color:#506175">=</span> p;
 
-    <span style="color:#778495">// Until we reach either end of either L or M, pick larger among</span>
+    <span style="color:#778495">// Until we reach either end of either L or M, pick smaller among</span>
     <span style="color:#778495">// elements L and M and place them in the correct position at A[p..r]</span>
     <span style="color:#8250aa;font-weight:600">while</span> (i <span style="color:#506175">&lt;</span> n1 <span style="color:#506175">&amp;</span><span style="color:#506175">&amp;</span> j <span style="color:#506175">&lt;</span> n2) {
       <span style="color:#8250aa;font-weight:600">if</span> (L<span style="color:#506175">[</span>i<span style="color:#506175">]</span> <span style="color:#506175">&lt;</span><span style="color:#506175">=</span> M<span style="color:#506175">[</span>j<span style="color:#506175">]</span>) {
@@ -188,6 +188,7 @@
 
 <span style="color:#8250aa;font-weight:600">class</span> <span style="color:#096c7c">CountingSort</span> {
   <span style="color:#7251a8">void</span> <span style="color:#225fbd">countSort</span>(<span style="color:#7251a8">int</span> array<span style="color:#506175">[</span><span style="color:#506175">]</span>, <span style="color:#7251a8">int</span> size) {
+    <span style="color:#8250aa;font-weight:600">if</span> (size <span style="color:#506175">=</span><span style="color:#506175">=</span> <span style="color:#b35329">0</span>) <span style="color:#8250aa;font-weight:600">return</span>;
     <span style="color:#7251a8">int</span><span style="color:#506175">[</span><span style="color:#506175">]</span> output <span style="color:#506175">=</span> <span style="color:#8250aa;font-weight:600">new</span> <span style="color:#7251a8">int</span><span style="color:#506175">[</span>size<span style="color:#506175">]</span>;
 
     <span style="color:#778495">// Find the largest element of the array</span>
@@ -197,11 +198,6 @@
         max <span style="color:#506175">=</span> array<span style="color:#506175">[</span>i<span style="color:#506175">]</span>;
     }
     <span style="color:#7251a8">int</span><span style="color:#506175">[</span><span style="color:#506175">]</span> count <span style="color:#506175">=</span> <span style="color:#8250aa;font-weight:600">new</span> <span style="color:#7251a8">int</span><span style="color:#506175">[</span>max <span style="color:#506175">+</span> <span style="color:#b35329">1</span><span style="color:#506175">]</span>;
-
-    <span style="color:#778495">// Initialize count array with all zeros.</span>
-    <span style="color:#8250aa;font-weight:600">for</span> (<span style="color:#7251a8">int</span> i <span style="color:#506175">=</span> <span style="color:#b35329">0</span>; i <span style="color:#506175">&lt;</span> max; <span style="color:#506175">+</span><span style="color:#506175">+</span>i) {
-      count<span style="color:#506175">[</span>i<span style="color:#506175">]</span> <span style="color:#506175">=</span> <span style="color:#b35329">0</span>;
-    }
 
     System.<span style="color:#225fbd">out</span>.<span style="color:#225fbd">println</span>(<span style="color:#2b794d">"</span><span style="color:#2b794d">COUNT START | C=</span><span style="color:#2b794d">"</span> <span style="color:#506175">+</span> Arrays.<span style="color:#225fbd">toString</span>(count));
     <span style="color:#778495">// Store the count of each element</span>
@@ -591,11 +587,14 @@
   }
   <span style="color:#778495">// Main function to implement radix sort</span>
   <span style="color:#8250aa;font-weight:600">public</span> <span style="color:#8250aa;font-weight:600">static</span> <span style="color:#7251a8">void</span> <span style="color:#225fbd">radixSort</span>(<span style="color:#7251a8">int</span><span style="color:#506175">[</span><span style="color:#506175">]</span> array) {
+    <span style="color:#8250aa;font-weight:600">if</span> (array.<span style="color:#225fbd">length</span> <span style="color:#506175">=</span><span style="color:#506175">=</span> <span style="color:#b35329">0</span>) <span style="color:#8250aa;font-weight:600">return</span>;
     <span style="color:#778495">// Get maximum element</span>
     <span style="color:#7251a8">int</span> maxElement <span style="color:#506175">=</span> getMax(array);
     <span style="color:#778495">// Apply counting sort to sort elements based on place value</span>
-    <span style="color:#8250aa;font-weight:600">for</span> (<span style="color:#7251a8">int</span> place <span style="color:#506175">=</span> <span style="color:#b35329">1</span>; maxElement <span style="color:#506175">/</span> place <span style="color:#506175">&gt;</span> <span style="color:#b35329">0</span>; place <span style="color:#506175">*</span><span style="color:#506175">=</span> <span style="color:#b35329">10</span>) {
+    <span style="color:#8250aa;font-weight:600">for</span> (<span style="color:#7251a8">int</span> place <span style="color:#506175">=</span> <span style="color:#b35329">1</span>; maxElement <span style="color:#506175">/</span> place <span style="color:#506175">&gt;</span> <span style="color:#b35329">0</span>; ) {
       countingSort(array, place);
+      <span style="color:#8250aa;font-weight:600">if</span> (place <span style="color:#506175">&gt;</span> maxElement <span style="color:#506175">/</span> <span style="color:#b35329">10</span>) <span style="color:#8250aa;font-weight:600">break</span>;
+      place <span style="color:#506175">*</span><span style="color:#506175">=</span> <span style="color:#b35329">10</span>;
     }
   }
   <span style="color:#778495">// A utility function to get the maximum value in the array</span>
